@@ -1,38 +1,31 @@
-# shopping_list_manager.py
-
 def display_menu():
-    """Display the shopping list menu."""
-    print("\nShopping List Manager")
-    print("1. Add an item")
-    print("2. Remove an item")
-    print("3. View the list")
+    print("Shopping List Manager")
+    print("1. Add Item")
+    print("2. Remove Item")
+    print("3. View List")
     print("4. Exit")
 
 def main():
-    shopping_list = []  # Initialize an empty shopping list
-
+    shopping_list = []
     while True:
-        # Display the menu
         display_menu()
-
-        # Get the user's choice
-        choice = input("\nEnter your choice (1-4): ")
+        choice = input("Enter your choice: ")
 
         if choice == '1':
-            # Add an item
+            # Prompt for and add an item
             item = input("Enter the item to add: ").strip()
             shopping_list.append(item)
-            print(f"'{item}' has been added to the list.")
+            print(f"'{item}' has been added to the shopping list.")
         elif choice == '2':
-            # Remove an item
+            # Prompt for and remove an item
             item = input("Enter the item to remove: ").strip()
             if item in shopping_list:
                 shopping_list.remove(item)
-                print(f"'{item}' has been removed from the list.")
+                print(f"'{item}' has been removed from the shopping list.")
             else:
-                print(f"'{item}' is not in the list.")
+                print(f"'{item}' is not in the shopping list.")
         elif choice == '3':
-            # View the list
+            # Display the shopping list
             if shopping_list:
                 print("\nCurrent Shopping List:")
                 for idx, item in enumerate(shopping_list, start=1):
@@ -40,7 +33,6 @@ def main():
             else:
                 print("\nThe shopping list is empty.")
         elif choice == '4':
-            # Exit the program
             print("Goodbye!")
             break
         else:
