@@ -1,18 +1,20 @@
-# temp_conversion_tool.py
+from dataclasses import dataclass
 
-# Conversion factors stored in a dictionary
-CONVERSION_FACTORS = {
-    "FAHRENHEIT_TO_CELSIUS": 5 / 9,
-    "CELSIUS_TO_FAHRENHEIT": 9 / 5,
-}
+# Define a dataclass for conversion factors
+@dataclass(frozen=True)
+class ConversionFactors:
+    FAHRENHEIT_TO_CELSIUS: float = 5 / 9
+    CELSIUS_TO_FAHRENHEIT: float = 9 / 5
+
+FACTORS = ConversionFactors()
 
 # Function to convert Fahrenheit to Celsius
 def convert_to_celsius(fahrenheit):
-    return (fahrenheit - 32) * CONVERSION_FACTORS["FAHRENHEIT_TO_CELSIUS"]
+    return (fahrenheit - 32) * FACTORS.FAHRENHEIT_TO_CELSIUS
 
 # Function to convert Celsius to Fahrenheit
 def convert_to_fahrenheit(celsius):
-    return (celsius * CONVERSION_FACTORS["CELSIUS_TO_FAHRENHEIT"]) + 32
+    return (celsius * FACTORS.CELSIUS_TO_FAHRENHEIT) + 32
 
 # Main function for user interaction
 def main():
